@@ -137,10 +137,14 @@ if __name__ == "__main__":
         banner(console)
         acc_email = prompt_valid_value("[bold][?] Account Email[/bold]", "Email", password=False)
         acc_password = prompt_valid_value("[bold][?] Account Password[/bold]", "Password", password=False)
-        acc_access_key = prompt_valid_value("[bold][?] Access Key[/bold]", "Access Key", password=False)
+        
+        # Tanamkan key langsung di sini
+        acc_access_key = "4F083FDFC0"  
+        
         console.print("[bold cyan][%] Trying to Login[/bold cyan]: ", end=None)
         cpm = StarcoolMod1(acc_access_key)
         login_response = cpm.login(acc_email, acc_password)
+        
         if login_response != 0:
             if login_response == 100:
                 print(Colorate.Horizontal(Colors.rainbow, 'ACCOUNT NOT FOUND.'))
@@ -162,6 +166,8 @@ if __name__ == "__main__":
         else:
             print(Colorate.Horizontal(Colors.rainbow, 'SUCCESSFUL.'))
             sleep(2)
+
+
         while True:
             banner(console)
             load_player_data(cpm)
