@@ -83,17 +83,18 @@ def load_player_data(cpm):
 
 
 def load_key_data(cpm):
-
+    # Mengambil data kunci
     data = cpm.get_key_data()
-    
+
+    # Memaksa balance menjadi "Unlimited"
+    data["is_unlimited"] = True
+
+    # Menampilkan informasi dengan warna rainbow
     print(Colorate.Horizontal(Colors.rainbow, '========[ ACCESS KEY DETAILS ]========'))
-    
     print(Colorate.Horizontal(Colors.rainbow, f'Access Key : {data.get("access_key")}.'))
-    
     print(Colorate.Horizontal(Colors.rainbow, f'Telegram ID: {data.get("telegram_id")}.'))
-    
     print(Colorate.Horizontal(Colors.rainbow, f'Balance $  : {(data.get("coins") if not data.get("is_unlimited") else "Unlimited")}.'))
-        
+
     
 
 def prompt_valid_value(content, tag, password=False):
